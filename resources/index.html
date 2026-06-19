@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TinyWebServer — Welcome</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 { color: #333; margin-bottom: 16px; font-size: 2rem; }
+        p { color: #666; line-height: 1.8; margin-bottom: 12px; }
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin: 4px;
+        }
+        hr { border: none; border-top: 1px solid #eee; margin: 24px 0; }
+        .footer { font-size: 0.85rem; color: #999; }
+        a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🚀 TinyWebServer</h1>
+        <p>A high-performance C++ web server built from scratch.</p>
+        <div>
+            <span class="badge">C++14</span>
+            <span class="badge">epoll</span>
+            <span class="badge">Reactor</span>
+            <span class="badge">Thread Pool</span>
+            <span class="badge">mmap</span>
+        </div>
+        <hr>
+        <p>
+            <a href="/login.html">Login</a> &nbsp;|&nbsp;
+            <a href="/register.html">Register</a> &nbsp;|&nbsp;
+            <a href="/picture.html">Gallery</a> &nbsp;|&nbsp;
+            <a href="/video.html">Video</a>
+        </p>
+        <p class="footer">Powered by C++ &bull; Zero-copy &bull; Non-blocking I/O</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+HTTP/1.0 默认短连接，仅显式写 keep-alive 才复用；
+HTTP/1.1 默认长连接，但客户端可手动 Connection: close 关闭；
