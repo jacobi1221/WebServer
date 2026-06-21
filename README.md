@@ -52,7 +52,7 @@ TinyWebServer 是一个用 C++14 从零构建的 Web 服务器，适用于学习
 
 ```bash
 # 1. 克隆项目
-git clone <your-repo-url> && cd TinyWebServer
+git clone https://github.com/your-username/TinyWebServer.git && cd TinyWebServer
 
 # 2. 创建构建目录
 mkdir build && cd build
@@ -223,9 +223,9 @@ TinyWebServer/
 -t       TIMEOUT       60          连接超时 (秒，0=禁用)
 -l       -             off         SO_LINGER 优雅关闭
 -s       SQL_PORT      3306        MySQL 端口
--u       SQL_USER      root        MySQL 用户名
--w       SQL_PWD       root        MySQL 密码
--d       DB_NAME       webserver   MySQL 数据库
+-u       SQL_USER      root        MySQL 用户名 (环境变量 MYSQL_USER)
+-w       SQL_PWD       root        MySQL 密码 (环境变量 MYSQL_PASS)
+-d       DB_NAME       webserver   MySQL 数据库 (环境变量 MYSQL_DB)
 -c       CONN_POOL     8           DB 连接池大小
 -n       THREAD_NUM    8           线程池大小
 -g       LOG_LEVEL     1           日志级别 0=DEBUG

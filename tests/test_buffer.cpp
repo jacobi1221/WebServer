@@ -1,8 +1,3 @@
-/**
- * @file    test_buffer.cpp
- * @brief   Buffer 模块单元测试
- */
-
 #include <gtest/gtest.h>
 #include <string>
 #include <cstring>
@@ -69,7 +64,7 @@ TEST(BufferTest, RetrieveUntil) {
     const char* end = std::search(buf.peek(), buf.beginWriteConst(), "\r\n", "\r\n" + 2);
     buf.retrieveUntil(end + 2);
 
-    EXPECT_EQ(buf.readableBytes(), 6u);  // "Line2\r\n" left
+    EXPECT_EQ(buf.readableBytes(), 7u);  // "Line2\r\n" left
 }
 
 /* ================================================================

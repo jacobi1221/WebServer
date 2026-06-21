@@ -170,6 +170,7 @@ if(BUILD_TESTS)
         target_sources(TinyWebServer_test PRIVATE
             ${TEST_SOURCES_MYSQL}
             code/Http/HttpRequest.cpp
+            code/Pool/SqlConnPool.cpp            # ← 修复：缺少 SqlConnPool 导致链接错误
         )
         target_include_directories(TinyWebServer_test PRIVATE ${MYSQL_INCLUDE_DIRS})
         target_link_libraries(TinyWebServer_test PRIVATE ${MYSQL_LIBRARIES})

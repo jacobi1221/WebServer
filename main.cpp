@@ -11,7 +11,7 @@
  *     -t TIMEOUT      连接超时秒数 (默认 60s, 0=禁用)
  *     -l              启用 SO_LINGER 优雅关闭
  *     -s SQL_PORT     MySQL 端口 (默认 3306)
- *     -u SQL_USER     MySQL 用户名 (默认 "root")
+ *     -u SQL_USER     MySQL 用户名 (默认 "root"; 支持环境变量 MYSQL_USER)
  *     -w SQL_PWD      MySQL 密码 (默认 "root")
  *     -d DB_NAME      MySQL 数据库名 (默认 "webserver")
  *     -c CONN_POOL    数据库连接池大小 (默认 8)
@@ -29,6 +29,7 @@
 #include <string>
 #include <getopt.h>
 #include <signal.h>
+#include <cstdlib>      // std::getenv (MySQL 环境变量)
 #include <unistd.h>
 #include <sys/stat.h>
 
@@ -63,8 +64,8 @@ static void printUsage(const char* prog) {
               << "  -l              启用 SO_LINGER 优雅关闭\n"
               << "  -s SQL_PORT     MySQL 端口 (默认 3306)\n"
               << "  -u SQL_USER     MySQL 用户名 (默认 \"root\")\n"
-              << "  -w SQL_PWD      MySQL 密码 (默认 \"root\")\n"
-              << "  -d DB_NAME      数据库名 (默认 \"webserver\")\n"
+              << "  -w SQL_PWD      MySQL 密码 (默认 \"root\"; 支持环境变量 MYSQL_PASS)\n"
+              << "  -d DB_NAME      数据库名 (默认 \"webserver\"; 支持环境变量 MYSQL_DB)\n"
               << "  -c CONN_POOL    DB 连接池大小 (默认 8)\n"
               << "  -n THREAD_NUM   线程池大小 (默认 8)\n"
               << "  -g LOG_LEVEL    日志级别 0=DEBUG,1=INFO,2=WARN,3=ERROR (默认 1)\n"
@@ -111,9 +112,9 @@ int main(int argc, char* argv[])
     int    timeoutMS   = 60000;   // 60 秒
     bool   optLinger   = false;
     int    sqlPort     = 3306;
-    const char* sqlUser   = "root";
-    const char* sqlPwd    = "root";
-    const char* dbName    = "webserver";
+    const char* sqlUser   = std::getenv("MYSQL_USER")   ? std::getenv("MYSQL_USER")   : "root";
+    const char* sqlPwd    = std::getenv("MYSQL_PASS")   ? std::getenv("MYSQL_PASS")   : "root";
+    const char* dbName    = std::getenv("MYSQL_DB")     ? std::getenv("MYSQL_DB")     : "webserver";
     int    connPoolNum = 8;
     int    threadNum   = 8;
     bool   openLog     = true;
